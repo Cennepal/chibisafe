@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="234" height="376" src="https://lolisafe.moe/xjoghu.png">
+  <img width="234" height="376" src="https://chibisafe.moe/xjoghu.png">
 </p>
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/chibisafe/chibisafe/master/LICENSE)
@@ -22,7 +22,7 @@ _If you fork/deploy your own instance it would mean a lot if you were to keep ei
 </p>
 
 ### Features of v6 aka Holo
-- 📄 [Beautiful docs](https://chibisafe.app/docs)
+- 📄 [Beautiful docs](https://chibisafe.app)
 - 🗄️ [S3 Storage Support](https://github.com/chibisafe/chibisafe/blob/master/docs/s3.md)
 - 📷 Beautiful masonry to browse media files
 - ✨ Chunked uploads for big files
@@ -44,11 +44,11 @@ _If you fork/deploy your own instance it would mean a lot if you were to keep ei
 ## Installing and running chibisafe
 Whichever method you choose to install chibisafe keep in mind that the installation process creates an account named `admin` with the same password. Once you log in the first time make sure to change it! Also we ***highly*** recommend using docker for chibisafe.
 
-- [Running chibisafe with Docker](https://chibisafe.app/guides/running-with-docker) | [Alternate link](https://github.com/chibisafe/chibisafe/blob/master/packages/next/src/content/guides/running-with-docker.mdx)
-- [Running chibisafe manually](https://chibisafe.app/guides/running-manually) | [Alternate link](https://github.com/chibisafe/chibisafe/blob/master/packages/next/src/content/guides/running-manually.mdx)
-- [Using network storage with chibisafe](https://chibisafe.app/guides/using-network-storage) | [Alternate link](https://github.com/chibisafe/chibisafe/blob/master/packages/next/src/content/guides/using-network-storage.mdx)
+- [Running chibisafe with Docker](https://chibisafe.app/docs/installation/running-with-docker)
+- [Running chibisafe manually](https://chibisafe.app/docs/installation/running-manually)
+- [Using network storage with chibisafe](https://chibisafe.app/docs/storage/using-network-storage)
 
-For more guides and how to set up different aspects of the service [please refer to the guides](https://chibisafe.app/guides)
+For more guides and how to set up different aspects of the service [please refer to the guides](https://chibisafe.app/docs/category/installation)
 
 ## Migrate from older versions
 
@@ -72,7 +72,7 @@ If you come from v5 you might be used to chibisafe exposing 1 single port for yo
 
 ## Author
 
-**Chibisafe** © [Pitu](https://github.com/Pitu), Released under the [MIT](https://github.com/WeebDev/chibisafe/blob/master/LICENSE) License.<br>
+**Chibisafe** © [Pitu](https://github.com/Pitu), Released under the [MIT](https://github.com/chibisafe/chibisafe/blob/master/LICENSE) License.<br>
 Authored and maintained by Pitu.
 
 <a href="https://github.com/chibisafe/chibisafe/graphs/contributors">
