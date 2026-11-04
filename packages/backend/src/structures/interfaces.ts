@@ -46,6 +46,7 @@ export interface FileInProgress {
 	original: string;
 	path: string;
 	size: string;
+	sourceUrl?: string | undefined;
 	type: string;
 }
 
@@ -63,6 +64,7 @@ export interface File {
 		name: string;
 	};
 	size: number;
+	sourceUrl?: string | null;
 	type: string;
 	userId?: number | null;
 	// id: number;
@@ -98,6 +100,7 @@ export interface Album {
 	id: number;
 	name: string;
 	nsfw: boolean;
+	sortOrder?: string | null;
 	userId: number;
 	uuid: string;
 	zippedAt: Date | null;
@@ -140,6 +143,7 @@ export interface Settings {
 	rateLimitMax: number;
 	rateLimitWindow: number;
 	rulesPageContent: string;
+	saveDuplicatesToAlbum: boolean;
 	secret: string;
 	serveUploadsFrom: string;
 	serviceName: string;
@@ -150,6 +154,7 @@ export interface Settings {
 	useUrlShortener: boolean;
 	userAccounts: boolean;
 	usersStorageQuota: number;
+	defaultSortOrder: string;
 }
 
 export interface RouteOptions {

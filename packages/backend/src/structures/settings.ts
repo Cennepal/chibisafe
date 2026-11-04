@@ -51,6 +51,7 @@ export const loadSettings = async (force = false) => {
 		SETTINGS.generatedFilenameLength = settingsTable.generatedFilenameLength;
 		SETTINGS.generatedAlbumLength = settingsTable.generatedAlbumLength;
 		SETTINGS.generatedLinksLength = settingsTable.generatedLinksLength;
+		SETTINGS.saveDuplicatesToAlbum = settingsTable.saveDuplicatesToAlbum;
 		SETTINGS.blockedExtensions = settingsTable.blockedExtensions.split(',');
 		SETTINGS.blockNoExtension = settingsTable.blockNoExtension;
 		SETTINGS.publicMode = settingsTable.publicMode;
@@ -78,6 +79,7 @@ export const loadSettings = async (force = false) => {
 		SETTINGS.privacyPolicyPageContent = settingsTable.privacyPolicyPageContent;
 		SETTINGS.termsOfServicePageContent = settingsTable.termsOfServicePageContent;
 		SETTINGS.rulesPageContent = settingsTable.rulesPageContent;
+		SETTINGS.defaultSortOrder = settingsTable.defaultSortOrder;
 		return;
 	}
 
@@ -98,6 +100,7 @@ export const loadSettings = async (force = false) => {
 		generatedFilenameLength: 12,
 		generatedAlbumLength: 6,
 		generatedLinksLength: 8,
+		saveDuplicatesToAlbum: false,
 		blockedExtensions: ['.jar', '.exe', '.msi', '.com', '.bat', '.cmd', '.scr', '.ps1', '.sh'].join(','),
 		blockNoExtension: true,
 		publicMode: false,
@@ -124,7 +127,8 @@ export const loadSettings = async (force = false) => {
 		S3PublicUrl: '',
 		privacyPolicyPageContent: '',
 		termsOfServicePageContent: '',
-		rulesPageContent: ''
+		rulesPageContent: '',
+		defaultSortOrder: 'createdAt:desc'
 	};
 
 	await prisma.settings.create({
@@ -252,6 +256,12 @@ const SETTINGS_META = {
 		name: 'Generated short URL Length',
 		notice: 'This setting should at least be 8 characters long to avoid collisions.',
 		category: 'other'
+	},
+	saveDuplicatesToAlbum: {
+		type: 'boolean',
+		description: 'Whether or not to add a file that was already uploaded to the album you tried uploading it to.',
+		name: 'Add duplicates to Album',
+		category: 'uploads'
 	},
 	blockedExtensions: {
 		type: 'string',
@@ -423,5 +433,18 @@ const SETTINGS_META = {
 		description: 'The markdown content for the rules page. Leave empty to disable.',
 		name: 'Rules Page',
 		category: 'legal'
+	},
+	defaultSortOrder: {
+		type: 'select',
+		description: 'The default sort order for files in albums.',
+		name: 'Default Sort Order',
+		category: 'other',
+		options: [
+			{ label: 'Newest first', value: 'createdAt:desc' },
+			{ label: 'Oldest first', value: 'createdAt:asc' },
+			{ label: 'Name (A-Z)', value: 'name:asc' },
+			{ label: 'Name (Z-A)', value: 'name:desc' },
+			{ label: 'Legacy Default (ID Desc)', value: 'id:desc' }
+		]
 	}
 };
